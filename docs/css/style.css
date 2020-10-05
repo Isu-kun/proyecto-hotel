@@ -1,0 +1,503 @@
+/*Recordatorio
+----------------------------------------------------------------
+>>> Organización de las secciones CSS
+----------------------------------------------------------------
+	BASE
+		- Reset de los navegadores
+		- Typography
+		- Seteos generales
+	HELPERS
+		- Clases especiales (de ayuda)
+	LAYOUT
+		- Grid System
+		- Main Structures (header, nav, section, aside, footer)
+	COMPONENTS (reusable)
+		- buttons
+		- navbar
+		- formularios
+		- ventanas modales
+		- sliders de imágenes o generales
+		- accordion
+		- tabs
+	PAGES/SECTIONS
+		- Páginas
+		- Secciones
+----------------------------------------------------------------
+>>> Organización de las declaraciones CSS
+----------------------------------------------------------------
+  Primero colocar las declaraciones estructurales
+	==========================================
+	display:block;
+	width:120px;
+	height:45px;
+	margin:10px;
+	padding:10px 15px;
+	border:solid 2px #222;
+
+	Luego colocar las declaraciones de estilo (diseño)
+	==========================================
+	color:#222;
+	font-weight:900;
+	text-align: center;
+	text-decoration: none;
+  cursor:pointer; */
+
+/* BASE
+===================== */
+:root {
+	
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+	margin:0;
+	font-family: 'Alegreya', serif;
+	background: url("../images/9399_ho_00_p_1024x768.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-color: #f5f4f4;
+	color:#fff;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	text-shadow: 5px 5px 5px black;
+}
+
+img {
+  width: 100%;
+}
+
+/* HELPERS
+===================== */
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+
+}
+
+.clearfix::after {
+	clear: both;
+	content: '';
+	display: table;
+}
+
+.padding-15 {
+	padding: 15px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+.pt-15 {
+	padding-top: 15px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+.pt-30 {
+	padding-top: 30px;
+}
+
+.mt-60 {
+	margin-top: 60px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+.pb-15 {
+	padding-bottom: 15px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+.pb-30{
+	padding-bottom: 30px;
+}
+
+.d-block {
+	display: block;
+}
+
+/* Centrar estructuras */
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.d-inline-block {
+	display: inline-block;
+}
+
+/* Float left*/
+.float-left {
+	float: left;
+}
+
+/* Float right */
+.float-right {
+	float: right;
+}
+
+.absolute {
+	position: absolute;
+}
+
+/* Centrar texto */
+.center-text {
+	text-align: center;
+}
+
+/* Destacar y variar texto */
+.italic-text {
+	font-style: italic;
+}
+
+.bold-text {
+	font-weight: bold;
+}
+
+.small-caps {
+	font-variant: small-caps;
+}
+
+/* Flex Box */
+.flex-box {
+  display: flex;
+}
+
+/* LAYOUT
+===================== */
+.container {
+	width:1200px;
+	height:auto;
+	margin:0px auto;
+	padding-left:15px;
+	padding-right:15px;
+	max-width:100%;
+}
+
+/* Grid system
+----------------*/
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+	position:relative;
+	float:left;
+	min-height:1px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+.col-12 {
+	width:100%;
+}
+.col-11 {
+	width: 91.66666667%;
+}
+.col-10 {
+	width: 83.33333333%;
+}
+.col-9 {
+	width: 75%;
+}
+.col-8 {
+	width: 66.66666667%;
+}
+.col-7 {
+	width: 58.33333333%;
+}
+.col-6 {
+	width: 50%;
+}
+.col-5 {
+	width: 41.66666667%;
+}
+.col-4 {
+	width: 33.33333333%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-2 {
+	width: 16.66666667%;
+}
+.col-1 {
+	width: 8.33333333%;
+}
+
+/* Main structures
+-------------------*/
+header {
+  position: relative;
+  float: left;
+  width: 100%;
+	background-color: #294159;
+}
+nav {
+  position: relative;
+  float: left;
+  width: 100%;
+	background-color: #4D85AB;
+}
+section {
+  position: relative;
+  float: left;
+	width: 100%;
+	/* Hex Color = #4e9d93 */
+	background-color: rgba(78, 157, 147, 0.75);
+}
+aside {
+  position: relative;
+  float: left;
+	width: 100%;
+	/* Hex Color = #4e9d93 */
+	background-color:  rgba(78, 157, 147, 0.75);
+}
+footer {
+	position: relative;
+  float:left;
+	width:100%;
+	height: 50px;
+	background-color: #ff6f69;
+}
+
+/* COMPONENTS
+===================== */
+/* Btn */
+.btn {
+	padding: 4px 7px;
+	text-transform: none;
+	font-weight: 400;
+	text-decoration: none;
+	background-color: #a9cec8;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+	line-height: 1.5;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+	.btn:hover {
+		background-color: #5E827C;
+	}
+	
+.btn-danger {
+	color: red;
+}
+.btn-alert {
+	color: yellow;
+}
+.btn-border {
+	border: solid 1px #007bff;
+}
+
+.btn-enviar {
+	color: #007bff;
+}
+
+.btn-arriba {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+	z-index: 99;
+	padding: 8px 15px;
+	text-transform: uppercase;
+	font-weight: 900;
+	text-decoration: none;
+	color: #007bff;
+	box-shadow: 3px 3px 5px black;
+}
+
+.btn-articles {
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+}
+
+/* Navbar */
+.navbar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+}
+	.navbar-menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.menu-item {
+		position: relative;
+		float: left;
+	}
+	.menu-link {
+		display: inline-block;
+		padding: 5px 5px;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: white;
+		font-weight: 600;
+	}
+
+	.menu-link:hover {
+		text-decoration: underline;
+		background-color: #5E827C;
+		color: #EBFFFC;
+	}
+
+/* Menú Idiomas */
+.menu-idiomas {
+	width: 30px;
+	top: 15px;
+	right: 15px;
+}
+
+/* Formulario */
+.form-header input,
+.form-header select,
+.form-header textarea {
+	margin: 10px;
+	padding: 5px 8px;
+	border: transparent;
+	border-radius: 3px;
+	font-size: 14px;
+}
+.form-header input[type="date"] {
+	padding: 5px 3px;
+}
+
+/* Ventanas Modales */
+.modal-mask {
+	position: fixed;
+	top: -700px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: hsla(180, 100%, 25%, 0.7);
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+
+}
+	.modal-mask:target {
+		opacity: 1;
+		top: 0;
+		pointer-events: auto;
+	}
+
+.content {
+	width: 50%;
+	margin: 30px auto;
+	text-align: center;
+}
+	.content .modal-slider img {
+		width: 100%;
+	}
+	.content img {
+		width: auto;
+		height: 50vh;
+	}
+
+/* Sombras */
+.sombras {
+	box-shadow: 5px 5px 10px black ;
+}
+
+/* Párrafos especiales */
+.parrafo-especial {
+
+}
+
+/* PAGES/SECTIONS
+===================== */
+/* Sección Habitaciones */
+.habitaciones-article {
+	height: 600px;
+	position: relative;
+}
+
+/* Sección Promociones */
+.promociones-article {
+	height: 550px;
+	position: relative;
+}
+
+/* Artículos Escalables en Habitaciones y Promociones */
+.scaled {
+	transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.scaled:hover {
+		transform: scale(1.05,1.05);
+	}
+
+/* Sección Servicios */
+.servicios-article {
+	height: 300px;
+}
+	.servicios-article img {
+		width: 75%;
+	}
+
+/* Aside Novedades */
+
+/* Aside Contacto */
+#contacto a {
+	color: white;
+	font-weight: 500;
+	text-shadow: 3px 3px 5px black;
+}
+	#contacto a:hover {
+		color: #2C5269;
+	}
+
+#contacto input {
+	width: 100%;
+}
+#contacto textarea {
+	width: 100%;
+}

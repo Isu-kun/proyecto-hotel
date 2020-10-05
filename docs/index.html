@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Mariano, te quería avisar que si en tu computadora algunas cosas se ven raras, a mí me pasó lo mismo cuando intenté trabajar en el sitio web en otra máquina, parece que la resolución que tengo en mi notebook que es donde principalmente trabajo es medio rara. Manteneme al tanto de las cosas que se rendericen raras y vamos viendo cómo lo corregimos. -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Título del proyecto -->
+    <title>Proyecto Hotel</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <!-- Descripción del proyecto -->
+    <meta name="description"
+        content="Sitio de hotel diseñado y creado por ORTIZ CASTRO, Ismael para el curso 'Desarrollo Web desde Cero - Edición Junio 2020' por Living The Web">
+
+    <!-- CSS
+    ========== -->
+    <!-- Bootstrap -->
+    <!-- Comenté el css de bootstrap porque como dio la casualidad que muchos de los nombres de las clases que yo creé coincidían, habían cosas que se entrelazaban y ocasionaban problemas -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <!-- Normalize -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--  -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Fonts 
+    ============-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Slicer_Scripts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+</head>
+
+<body>
+    <!-- Comienza el nav -->
+    <nav class="navbar">
+        <!-- Comienza el container -->
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <!-- Logo del hotel -->
+                    <!-- Tengo comentado el .svg del logo porque tiene un viewbox que no le puedo sacar todavía -->
+                    <h1>
+                        <a href="">
+                            <img src="images/svg/Logo Hotel.svg" alt="">
+                        </a>
+                    </h1>
+                </div>
+                <div class="col-10">
+                    <!-- Manú Principal -->
+                    <!-- Con el manú principal quería que los botones quedaran bien distribuidos a lo ancho del nav y que quedaran verticalmente centrados, pero como no me salió quedó así hasta que pueda corregirlo. Por la razón anterior es que tampoco toqué el height del nav, quería que quedara más chico. -->
+                    <ul class="navbar-menu">
+                        <li class="menu-item">
+                            <a href="#habitaciones" class="menu-link">Habitaciones</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#promociones" class="menu-link">Promociones</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#servicios" class="menu-link">Servicios</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#novedades" class="menu-link">Novedades</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#contacto" class="menu-link">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Idiomas -->
+                <div class="menu-idiomas absolute">
+                    <a class="idiomas-item" href="#">
+                        <img src="images/svg/Argentina.svg" alt="">
+                    </a>
+                    <a class="idiomas-item" href="#">
+                        <img src="images/svg/Estados Unidos.svg" alt="">
+                    </a>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- Container -->
+    </nav>
+    <!-- Comienza el Header -->
+    <header class="mt-60">
+        <!-- Comienza el Slider -->
+        <!-- Plugin bxslider -->
+        <div class="slider">
+            <div>
+                <img src="https://place-hold.it/1500x600" alt="">
+            </div>
+            <div>
+                <img src="https://place-hold.it/1500x600" alt="">
+            </div>
+            <div>
+                <img src="https://place-hold.it/1500x600" alt="">
+            </div>
+            <div>
+                <img src="https://place-hold.it/1500x600" alt="">
+            </div>
+        </div>
+        <!-- Formulario -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Con el formulario lo que intenté pero tampoco me salió fue que los input de nombre, email y teléfono quedaran en una línea arriba; y check in, check out, el select de habitaciones con el botón enviar quedaran en una línea abajo. No lo logré porque no pude centrar los elementos ni hacer que tuvieran tamaños que llenaran el ancho de su contenedor. -->
+                    <form class="form-header pt-15 pb-15" action="procesar-info.php" method="post">
+                        <!-- <label for="">Nombre y Apellido</label> -->
+                        <input type="text" name="nombre" placeholder="Nombre y Apellido" required>
+                        <input type="email" name="email" placeholder="mimail@sarasa.com" required>
+                        <input type="tel" name="phone" placeholder="+ xx x xxx xxxx-xx" required>
+                        <label for="check-in">Check-In</label>
+                        <input type="date" name="check-in">
+
+                        <label for="check-out">Check-Out</label>
+                        <input type="date" name="check-out">
+
+                        <select name="habitacion" id="">
+                            <option value="" disabled selected>--Habitación--</option>
+                            <option value="hab1"></option>
+                            <!-- <option value="hab2" selected="true"></option> -->
+                            <option value="hab2"></option>
+                            <option value="hab3"></option>
+                        </select>
+                        <!-- Botón de enviar -->
+                        <!-- Con Input -->
+                        <!-- <input type="submit" value="Enviar"> -->
+                        <button class="btn btn-enviar btn-border" type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Contenido principal del sitio web -->
+    <main>
+        <!-- Sección Habitaciones -->
+        <section id="habitaciones" class="mt-30 mb-30 pt-30 pb-30">
+            <!-- Comienza el container -->
+            <div class="container">
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-12 mb-30">
+                        <h2>Habitaciones</h2>
+                    </div>
+                </div> <!-- row -->
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-4">
+                        <article id="habitacion-01" class="habitaciones-article scaled padding-15 sombras">
+                            <h3 class="mb-15">Habitación 01</h3>
+                            <img src="https://place-hold.it/600x600" alt="">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, tempore suscipit corrupti
+                                quos natus dolor maxime rem sunt et? Dolorem, illo! Dicta officia nesciunt voluptates
+                                voluptatem praesentium, mollitia a blanditiis!
+                            </p>
+                            <button class="btn btn-ver btn-articles">
+                                <a href="#modal_habitacion1">Ver [+]</a>
+                            </button>
+                        </article>
+                    </div>
+                    <div class="col-4">
+                        <article id="habitacion-02" class="habitaciones-article scaled padding-15 sombras">
+                            <h3 class="mb-15">Habitación 02</h3>
+                            <img src="https://place-hold.it/600x600" alt="">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus inventore illo,
+                                deleniti explicabo odio fuga eligendi numquam molestias maxime, maiores sed enim ducimus
+                                perferendis hic. Ex, cum doloribus. Rem, numquam!
+                            </p>
+                            <button class="btn btn-ver btn-articles">
+                                <a href="#modal_habitacion2">Ver [+]</a>
+                            </button>
+                        </article>
+                    </div>
+                    <div class="col-4">
+                        <article id="habitacion-03" class="habitaciones-article scaled padding-15 sombras">
+                            <h3 class="mb-15">Habitación 03</h3>
+                            <img src="https://place-hold.it/600x600" alt="">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus quibusdam ullam totam
+                                culpa sed, dignissimos facilis dolorem, iusto harum itaque similique et ea laboriosam,
+                                unde officiis sunt eveniet impedit obcaecati!
+                            </p>
+                            <button class="btn btn-ver btn-articles">
+                                <a href="#modal_habitacion3">Ver [+]</a>
+                            </button>
+                        </article>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- Container -->
+        </section> <!-- Habitaciones -->
+        <!-- Sección Promociones -->
+        <section id="promociones" class="mt-30 mb-30 pt-30 pb-30">
+            <!-- Comienza el container -->
+            <div class="container">
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-12 mb-30">
+                        <h2>Promociones</h2>
+                    </div>
+                </div> <!-- row -->
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-3">
+                        <article id="promocion-01" class="promociones-article scaled sombras padding-15">
+                            <img src="https://place-hold.it/600x600" alt="">
+                            <h3 class="mt-15">Promoción 1</h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, eum vel cumque aut, nulla
+                                dolorum iste quidem delectus unde neque aspernatur! Enim, obcaecati in rem
+                                exercitationem ad repellendus voluptatibus architecto!
+                            </p>
+                            <button class="btn btn-ver btn-articles">
+                                <a href="#modal_promocion1">Ver [+]</a>
+                            </button>
+                        </article>
+                    </div>
+                    <div class="col-3">
+                        <article id="promocion-02" class="promociones-article scaled sombras padding-15">
+                            <img src="https://place-hold.it/600x600" alt="">
+                            <h3 class="mt-15">Promoción 2</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus odit optio, tempore
+                                voluptas officia assumenda expedita perferendis ipsum voluptatum! Soluta culpa quia cum,
+                                enim obcaecati neque omnis exercitationem aperiam temporibus.
+                            </p>
+                            <button class="btn btn-ver btn-articles">
+                                <a href="#modal_promocion2">Ver [+]</a>
+                            </button>
+                        </article>
+                    </div>
+                    <div class="col-3">
+                        <article id="promocion-03" class="promociones-article scaled sombras padding-15">
+                            <img src="https://place-hold.it/600x600" alt="">
+                            <h3 class="mt-15">Promoción 3</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis distinctio
+                                doloremque, modi illo laboriosam corrupti saepe ipsam! Beatae minus tenetur inventore
+                                illum rem, nesciunt dolor eius quis cumque quibusdam veniam.
+                            </p>
+                            <button class="btn btn-ver btn-articles">
+                                <a href="#modal_promocion3">Ver [+]</a>
+                            </button>
+                        </article>
+                    </div>
+                    <div class="col-3">
+                        <article id="promocion-04" class="promociones-article scaled sombras padding-15">
+                            <img src="https://place-hold.it/600x600" alt="">
+                            <h3 class="mt-15">Promoción 4</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut non dignissimos excepturi?
+                                Perferendis voluptates, eligendi aliquid est accusamus voluptatum facilis corporis quia
+                                ratione modi dignissimos consequatur pariatur non. Repudiandae, qui!
+                            </p>
+                            <button class="btn btn-ver btn-articles">
+                                <a href="#modal_promocion4">Ver [+]</a>
+                            </button>
+                        </article>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- Container -->
+        </section> <!-- Promociones -->
+        <!-- Sección Servicios -->
+        <section id="servicios" class="mt-30 mb-30 pt-30 pb-30">
+            <!-- Conmienza el container -->
+            <div class="container">
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-12 mb-30">
+                        <h2>Servicios</h2>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <article class="servicios-article mt-30">
+                            <img class="center-block" src="images/svg/Internet Inalámbrico.svg" alt="">
+                            <h3 class="center-text small-caps mt-30">
+                                Internet Inalámbrico
+                            </h3>
+                        </article>
+                    </div>
+                    <div class="col-4">
+                        <article class="servicios-article mt-30">
+                            <img class="center-block" src="images/svg/Cafetería.svg" alt="">
+                            <h3 class="center-text small-caps mt-30">
+                                Cafetería
+                            </h3>
+                        </article>
+                    </div>
+                    <div class="col-4">
+                        <article class="servicios-article mt-30">
+                            <img class="center-block" src="images/svg/Piscina.svg" alt="">
+                            <h3 class="center-text small-caps mt-30">
+                                Piscina
+                            </h3>
+                        </article>
+                    </div>
+                </div> <!-- row -->
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-4">
+                        <article class="servicios-article mt-30">
+                            <img class="center-block" src="images/svg/Restaurant.svg" alt="">
+                            <h3 class="center-text small-caps mt-30">
+                                Restaurant
+                            </h3>
+                        </article>
+                    </div>
+                    <div class="col-4">
+                        <article class="servicios-article mt-30">
+                            <img class="center-block" src="images/svg/Seguridad Personalizada.svg" alt="">
+                            <h3 class="center-text small-caps mt-30">
+                                Seguridad personalizada
+                            </h3>
+                        </article>
+                    </div>
+                    <div class="col-4">
+                        <article class="servicios-article mt-30">
+                            <img class="center-block" src="images/svg/Gimnasio.svg" alt="">
+                            <h3 class="center-text small-caps mt-30">
+                                Gimnasio
+                            </h3>
+                        </article>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </section> <!-- Servicios -->
+        <!-- Sección Novedades (Integración con redes sociales de terceros donde se difunden eventos especiales (galas, congresos, charlas, etc) -->
+        <aside id="novedades" class="mt-30 mb-30 pt-30 pb-30">
+            <!-- Comienza el container -->
+            <div class="container">
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-12 mb-30">
+                        <h2>Novedades</h2>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <!-- Comienza el container -->
+            <div class="container">
+                <!-- Comienza el row -->
+                <div class="row">
+                    <!-- En los siguientes espacios estaba pensando en poner algo como un widget donde se muestren ventanas referidas a Instagram o Twitter -->
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-6">
+
+                    </div>
+                </div> <!-- row -->
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-6">
+
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </aside> <!-- Novedades -->
+        <!-- Sección Contacto -->
+        <aside id="contacto" class="mt-30 mb-30 pt-30 pb-30">
+            <!-- Comienza el container -->
+            <div class="container">
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-12 mb-30">
+                        <h2>Contacto</h2>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <!-- Comienza el container -->
+            <div class="container">
+                <!-- Comienza el row -->
+                <div class="row">
+                    <div class="col-6">
+                        <!-- Acá va el mapa -->
+                        <!-- Antes había logrado que el mapa tuviera un width de 100% y height de 100% pero después se modificó, no logro descubrir por qué. -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.3258274568907!2d-68.84702128525606!3d-32.88955257632948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0907b3f6324b%3A0x501d1521958dfb21!2sPlaza%20Independencia!5e0!3m2!1ses-419!2sar!4v1601506172476!5m2!1ses-419!2sar" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                    <div class="col-6">
+                        <p>Dirección: Calle Sarasa número Sarasa, Ciudad Sarasa, Sarasa, Argentina</p>
+                        <p>Teléfonos: <a href="tel:+54 9 (261) 5652279">+54 9 (261) 5652279</a></p>
+                        <p>Mail: <a href="mailto:info@sarasahotel.com">info@sarasahotel.com</a></p>
+                        <p>O contáctanos a nuetro <a
+                                href="https://api.whatsapp.com/send?phone=542615652279&text=Me%20comunico%20desde%20el%20sitio%20web%20del%20hotel.">WhatsApp</a>
+                        </p>
+
+                        <!-- Formulario de contacto -->
+                        <form action="procesar-info.php" method="post">
+                            <!-- <label for="">Nombre y Apellido</label> -->
+                            <input type="text" name="nombre" placeholder="Nombre y Apellido" required>
+                            <input type="email" name="email" placeholder="mimail@sarasa.com" required>
+                            <input type="tel" name="phone" placeholder="+ xx x xxx xxxx-xx" required>
+                            <textarea name="" id="" cols="30" rows="10" required>Escríbenos tu mensaje :)</textarea>
+                            <button class="btn btn-enviar btn-border" type="submit"
+                                value="Enviar mensaje">Enviar</button>
+                        </form> <!-- Formulario -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </aside> <!-- Contactos -->
+    </main>
+    <footer class="mt-15">
+        <!-- Sub Footer -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        Diseñado por <a href="">ORTIZ CASTRO, Ismael</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Arriba -->
+    <button class="btn btn-arriba">
+        <a href="#">Arriba</a>
+    </button>
+
+    <!-- Ventanas modales -->
+    <!-- Ventana modal Habitaciones -->
+    <!-- Ventana modal Habitación 1 -->
+    <div id="modal_habitacion1" class="modal-mask pt-30 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <div class="modal-slider">
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                        </div>
+                        <h3 class="mt-30 mb-30">Habitación 1</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repellendus quo
+                            alias, fugiat magnam dolores explicabo reiciendis in reprehenderit illum nobis perspiciatis
+                            temporibus, quae atque molestiae suscipit blanditiis quis?
+                        </p>
+                        <button class="btn">
+                            <a href="#/">Cerrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana modal Habitación 2 -->
+    <div id="modal_habitacion2" class="modal-mask pt-30 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <div class="modal-slider">
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                        </div>
+                        <h3 class="mt-30 mb-30">Habitación 2</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repellendus quo
+                            alias, fugiat magnam dolores explicabo reiciendis in reprehenderit illum nobis perspiciatis
+                            temporibus, quae atque molestiae suscipit blanditiis quis?
+                        </p>
+                        <button class="btn">
+                            <a href="#/">Cerrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana modal Habitación 3 -->
+    <div id="modal_habitacion3" class="modal-mask pt-30 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <div class="modal-slider">
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                            <div>
+                                <img src="https://place-hold.it/600x600" alt="">
+                            </div>
+                        </div>
+                        <h3 class="mt-30 mb-30">Habitación 3</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repellendus quo
+                            alias, fugiat magnam dolores explicabo reiciendis in reprehenderit illum nobis perspiciatis
+                            temporibus, quae atque molestiae suscipit blanditiis quis?
+                        </p>
+                        <button class="btn">
+                            <a href="#/">Cerrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventanas modales Promociones -->
+    <!-- Ventana modal Promoción 1 -->
+    <div id="modal_promocion1" class="modal-mask mt-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <img class="mb-30" src="https://place-hold.it/600x600" alt="">
+                        <h3>Promoción 1</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repellendus quo
+                            alias, fugiat magnam dolores explicabo reiciendis in reprehenderit illum nobis perspiciatis
+                            temporibus, quae atque molestiae suscipit blanditiis quis?
+                        </p>
+                        <button class="btn">
+                            <a href="#/">Cerrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana modal Promoción 2 -->
+    <div id="modal_promocion2" class="modal-mask mt-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <img class="mb-30" src="https://place-hold.it/600x600" alt="">
+                        <h3>Promoción 2</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repellendus quo
+                            alias, fugiat magnam dolores explicabo reiciendis in reprehenderit illum nobis perspiciatis
+                            temporibus, quae atque molestiae suscipit blanditiis quis?
+                        </p>
+                        <button class="btn">
+                            <a href="#/">Cerrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana modal Promoción 3 -->
+    <div id="modal_promocion3" class="modal-mask mt-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <img class="mb-30" src="https://place-hold.it/600x600" alt="">
+                        <h3>Promoción 3</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repellendus quo
+                            alias, fugiat magnam dolores explicabo reiciendis in reprehenderit illum nobis perspiciatis
+                            temporibus, quae atque molestiae suscipit blanditiis quis?
+                        </p>
+                        <button class="btn">
+                            <a href="#/">Cerrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana modal Promoción 4 -->
+    <div id="modal_promocion4" class="modal-mask mt-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content">
+                        <img class="mb-30" src="https://place-hold.it/600x600" alt="">
+                        <h3>Promoción 4</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam impedit repellendus quo
+                            alias, fugiat magnam dolores explicabo reiciendis in reprehenderit illum nobis perspiciatis
+                            temporibus, quae atque molestiae suscipit blanditiis quis?
+                        </p>
+                        <button class="btn">
+                            <a href="#/">Cerrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- Scripts -->
+<!-- Scripts de bxSlider -->
+<!-- Nav Slider -->
+<script>
+    $(document).ready(function () {
+        $('.slider').bxSlider({
+            mode: 'fade',
+            auto: true,
+            // autoControls: true,
+            stopAutoOnClick: true,
+            pager: true,
+        });
+    });
+</script>
+
+<!-- Modal Slider -->
+<script>
+    $(document).ready(function () {
+        $('.modal-slider').bxSlider({
+            mode: 'fade',
+            auto: false,
+            // autoControls: true,
+            stopAutoOnClick: true,
+            pager: true,
+        });
+    });
+</script>
+
+</html>
